@@ -1,16 +1,203 @@
-const products=[
-{id:1,name:"PlayStation 5 Slim",price:2130999},
-{id:2,name:"Xbox Series X",price:3250999},
-{id:3,name:"Nintendo Switch OLED",price:1599999},
-{id:4,name:"iPhone 15 Black",price:3405999},
-{id:5,name:"GTA VI Xbox",price:300000}
-];
+const productos = [
 
-const catalogo=document.getElementById("catalogo");
-products.forEach(p=>{
- const d=document.createElement("div");
- d.className="card";
- d.innerHTML=`<h3>${p.name}</h3><p>$${p.price.toLocaleString()} COP</p>
- <button onclick="addToCart(${p.id})">Agregar</button>`;
- catalogo.appendChild(d);
-});
+  // ======================
+  // 🎮 CONSOLAS
+  // ======================
+  {
+    id: 1,
+    nombre: "Consola Nintendo Switch 2",
+    precio: 2759900,
+    categoria: "consolas",
+    imagen: "img/generica-consola.png",
+    descripcion: "Incluye consola Nintendo Switch 2, Joy-Con 2, Dock, HDMI, adaptador y cables USB-C.",
+    stock: true
+  },
+  {
+    id: 2,
+    nombre: "PlayStation 5 Slim Digital 1TB",
+    precio: 2130999,
+    categoria: "consolas",
+    imagen: "img/generica-consola.png",
+    descripcion: "PS5 Slim Digital con SSD 1TB, soporte 4K, hasta 120 FPS.",
+    stock: true
+  },
+  {
+    id: 3,
+    nombre: "PlayStation 5 Pro Digital 2TB",
+    precio: 3980000,
+    categoria: "consolas",
+    imagen: "img/generica-consola.png",
+    descripcion: "PS5 Pro con SSD 2TB, 4K real y hasta 8K.",
+    stock: true
+  },
+  {
+    id: 4,
+    nombre: "Xbox Series X 1TB",
+    precio: 3250999,
+    categoria: "consolas",
+    imagen: "img/generica-consola.png",
+    descripcion: "Xbox Series X 4K Ultra HD, SSD 1TB, hasta 120 FPS.",
+    stock: true
+  },
+  {
+    id: 5,
+    nombre: "Xbox Series S 1TB Robot White",
+    precio: 2150000,
+    categoria: "consolas",
+    imagen: "img/generica-consola.png",
+    descripcion: "Xbox Series S digital, SSD 1TB, Ray Tracing y Quick Resume.",
+    stock: true
+  },
+
+  // ======================
+  // 🎮 VIDEOJUEGOS
+  // ======================
+  {
+    id: 10,
+    nombre: "Splatoon 3 - Nintendo Switch",
+    precio: 195000,
+    categoria: "videojuegos",
+    imagen: "img/generica-juego.png",
+    descripcion: "Combates 4vs4, modo historia y Salmon Run.",
+    stock: true
+  },
+  {
+    id: 11,
+    nombre: "EA SPORTS FC 26 - Nintendo Switch",
+    precio: 240000,
+    categoria: "videojuegos",
+    imagen: "img/generica-juego.png",
+    descripcion: "Fútbol de nueva generación optimizado para Switch.",
+    stock: true
+  },
+  {
+    id: 12,
+    nombre: "GTA VI - Xbox Series",
+    precio: 300000,
+    categoria: "videojuegos",
+    imagen: "img/generica-juego.png",
+    descripcion: "Regresa a Vice City en la nueva era de GTA.",
+    stock: true
+  },
+  {
+    id: 13,
+    nombre: "Luigi’s Mansion 2 HD - Nintendo Switch",
+    precio: 229000,
+    categoria: "videojuegos",
+    imagen: "img/generica-juego.png",
+    descripcion: "Aventura clásica de Luigi remasterizada en HD.",
+    stock: true
+  },
+  {
+    id: 14,
+    nombre: "The Last of Us Remastered - PS4",
+    precio: 109900,
+    categoria: "videojuegos",
+    imagen: "img/generica-juego.png",
+    descripcion: "Historia legendaria remasterizada para PS4.",
+    stock: true
+  },
+
+  // ======================
+  // 🎮 ACCESORIOS
+  // ======================
+  {
+    id: 20,
+    nombre: "Control DualSense Death Stranding 2 - PS5",
+    precio: 349000,
+    categoria: "accesorios",
+    imagen: "img/generica-accesorio.png",
+    descripcion: "Control edición limitada Death Stranding 2.",
+    stock: true
+  },
+  {
+    id: 21,
+    nombre: "Control Nintendo Switch Fortnite Peely",
+    precio: 359900,
+    categoria: "accesorios",
+    imagen: "img/generica-accesorio.png",
+    descripcion: "Control inalámbrico edición Fortnite Peely.",
+    stock: true
+  },
+
+  // ======================
+  // 📱 CELULARES
+  // ======================
+  {
+    id: 30,
+    nombre: "iPhone 15 Black 128GB",
+    precio: 3405999,
+    categoria: "celulares",
+    imagen: "img/generica-celular.png",
+    descripcion: "iPhone 15 128GB, modelo A3090.",
+    stock: true
+  },
+  {
+    id: 31,
+    nombre: "iPhone 16 Pro Titanio Natural",
+    precio: 4000000,
+    categoria: "celulares",
+    imagen: "img/generica-celular.png",
+    descripcion: "Chip A18 Pro, alto rendimiento y diseño premium.",
+    stock: true
+  },
+  {
+    id: 32,
+    nombre: "iPhone 13 128GB",
+    precio: 2049000,
+    categoria: "celulares",
+    imagen: "img/generica-celular.png",
+    descripcion: "Chip A15 Bionic, pantalla OLED 6.1”.",
+    stock: true
+  },
+  {
+    id: 33,
+    nombre: "iPhone 17 Pro 1TB",
+    precio: 6584999,
+    categoria: "celulares",
+    imagen: "img/generica-celular.png",
+    descripcion: "A19 Pro, 1TB, cámaras 48MP y LiDAR.",
+    stock: true
+  },
+  {
+    id: 34,
+    nombre: "Motorola G15 256GB Verde",
+    precio: 775900,
+    categoria: "celulares",
+    imagen: "img/generica-celular.png",
+    descripcion: "Pantalla 6.72”, 256GB almacenamiento.",
+    stock: true
+  },
+
+  // ======================
+  // 🔊 TECNOLOGÍA
+  // ======================
+  {
+    id: 40,
+    nombre: "Pantalla Táctil para Carro Kleva Smart Play",
+    precio: 459900,
+    categoria: "tecnologia",
+    imagen: "img/generica-tech.png",
+    descripcion: "Pantalla multimedia táctil para automóvil.",
+    stock: true
+  },
+  {
+    id: 41,
+    nombre: "Amazon Echo Show 8 (3ra Gen)",
+    precio: 749900,
+    categoria: "tecnologia",
+    imagen: "img/generica-tech.png",
+    descripcion: "Altavoz inteligente con pantalla.",
+    stock: true
+  },
+  {
+    id: 42,
+    nombre: "Amazon Echo Spot 2024",
+    precio: 349900,
+    categoria: "tecnologia",
+    imagen: "img/generica-tech.png",
+    descripcion: "Altavoz inteligente compacto.",
+    stock: true
+  }
+
+];
